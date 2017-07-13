@@ -80,7 +80,7 @@ public class CharControl : MonoBehaviour {
 
 			transform.Rotate(0, rotation, 0);
 			//cc.transform.Rotate(0, rotation, 0);
-			cc.Move(transform.TransformDirection(Vector3.forward*vertical) + Physics.gravity *0.01f);
+			cc.Move(transform.TransformDirection(Vector3.forward*vertical));
 			//apply our input to our character controller
 			//cc.Move( new Vector3(0f, 0f, vertical) * .5f + Physics.gravity *0.01f);
 		}

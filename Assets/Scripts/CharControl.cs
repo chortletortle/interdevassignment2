@@ -35,7 +35,7 @@ public class CharControl : MonoBehaviour {
 
 		if (Vector3.Distance (transform.position, fridge.transform.position) < 10f && textCount == 1) { 
 			screenMessage.fontSize = 30;
-			screenMessage.text = "fate reminds you \nthat cats don't have thumbs.\n you feel hot \n but without your bikini on! \n why?";
+			screenMessage.text = "fate reminds you \nthat cats don't have fingers.\n you feel hot \n but without your bikini on! \n why?";
 			textCount++;
 		} 
 
@@ -45,19 +45,19 @@ public class CharControl : MonoBehaviour {
 			textCount++;
 		}
 
-		if ( Vector3.Distance(transform.position, cup.transform.position) < 5f && textCount == 3) { 
+		if ( Vector3.Distance(transform.position, cup.transform.position) < 2f && textCount == 3) { 
 			screenMessage.fontSize = 30;
 			screenMessage.text = "the food guy \n wrote you \n a kind letter \n and a fat check \n go sit on his face";
 			textCount++;
 		}
 
-		if ( Vector3.Distance(transform.position, bed.transform.position) < 4f && textCount == 4) { 
+		if ( Vector3.Distance(transform.position, bed.transform.position) < 9f && textCount == 4) { 
 			screenMessage.fontSize = 30;
-			screenMessage.text = "HEY! \n wtf!!! \n food guy aint here \n you hear a noise \n and yawn";
+			screenMessage.text = "HEY! \n wtf!!! \n food guy aint here \n you hear a woosh noise \n and instinctively yawn";
 			textCount++;
 		} 
 
-		if ( Vector3.Distance(transform.position, vent.transform.position) < 3f && textCount == 5) { 
+		if ( Vector3.Distance(transform.position, vent.transform.position) < 4f && textCount == 5) { 
 			textCount++;
 			screenMessage.fontSize = 30;
 			screenMessage.text = "the wafting temperature \n hits the spot \n on your fuzzy balls \n\n hit space to snooze";
@@ -67,6 +67,7 @@ public class CharControl : MonoBehaviour {
 		if ( Input.GetKeyDown(KeyCode.Space)  && textCount == 6) { 
 			screenMessage.fontSize = 60;
 			screenMessage.text = "z   \n z  \n  z \n   z";
+			title.text = "you win";
 			//trigger fade screen + credits?
 			// or just add credits to the side lmao
 			control = false;

@@ -5,10 +5,10 @@ public class Headbobber: MonoBehaviour
 {
 
 	private float timer = 0.0f;
-	float bobbingSpeed = 0.18f;
-	float bobbingAmount = 0.2f;
+	public float bobbingSpeed = 0.18f;
+	public float bobbingAmount = 0.2f;
 	float midpoint = 2.0f;
-	public float val = 3f;
+	public float height = 3f;
 
 	void Update () {
 		float waveslice = 0.0f;
@@ -38,7 +38,7 @@ public class Headbobber: MonoBehaviour
 			cSharpConversion.y = midpoint;
 		}
 
-		transform.localPosition = cSharpConversion - new Vector3 (0f, val, 0f);
+		transform.localPosition = cSharpConversion - new Vector3 (0f, height, 0f);
 	}
 
 

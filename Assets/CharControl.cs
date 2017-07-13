@@ -17,6 +17,7 @@ public class CharControl : MonoBehaviour {
 	public GameObject bed;
 	public GameObject vent;
 	int textCount=0;
+	bool control = true;
 
 	// Use this for initialization
 	void Start () {
@@ -63,17 +64,25 @@ public class CharControl : MonoBehaviour {
 
 		}
 
+		if ( Input.GetKeyDown(KeyCode.Space)  && textCount == 6) { 
+			screenMessage.fontSize = 60;
+			screenMessage.text = "z   \n z  \n  z \n   z";
+			//trigger fade screen + credits?
+			// or just add credits to the side lmao
+			control = false;
 
+		}
 
+		if (control) {
+			//float horizontal = Input.GetAxis ("Horizontal"); // A+D on keyboard
+			float vertical = Input.GetAxis ("Vertical") * speed;// W+S on keyboard
+			float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
 
-		//float horizontal = Input.GetAxis ("Horizontal"); // A+D on keyboard
-		float vertical = Input.GetAxis ("Vertical") * speed;// W+S on keyboard
-		float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-
-		transform.Rotate(0, rotation, 0);
-		//cc.transform.Rotate(0, rotation, 0);
-		cc.Move(transform.TransformDirection(Vector3.forward*vertical) + Physics.gravity *0.01f);
-		//apply our input to our character controller
-		//cc.Move( new Vector3(0f, 0f, vertical) * .5f + Physics.gravity *0.01f);
+			transform.Rotate(0, rotation, 0);
+			//cc.transform.Rotate(0, rotation, 0);
+			cc.Move(transform.TransformDirection(Vector3.forward*vertical) + Physics.gravity *0.01f);
+			//apply our input to our character controller
+			//cc.Move( new Vector3(0f, 0f, vertical) * .5f + Physics.gravity *0.01f);
+		}
 	}
 }

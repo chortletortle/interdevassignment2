@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharControl : MonoBehaviour {
 
 	CharacterController cc;
-	public float speed = .5F;
+	public float speed = 1F;
 	public float rotationSpeed = 15.0F;
 
 	// Use this for initialization

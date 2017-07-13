@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharControl : MonoBehaviour {
 
 	CharacterController cc;
 	public float speed = 1F;
 	public float rotationSpeed = 15.0F;
+	public Text screenMessage;
+	bool startText = true;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +18,10 @@ public class CharControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (startText == true && (Input.GetAxis ("Vertical") != 0 || Input.GetAxis ("Horizontal") != 0)) {
+			screenMessage.text = "";
+			startText = false;
+		}
 		//float horizontal = Input.GetAxis ("Horizontal"); // A+D on keyboard
 		float vertical = Input.GetAxis ("Vertical") * speed;// W+S on keyboard
 		float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
@@ -22,9 +29,6 @@ public class CharControl : MonoBehaviour {
 		transform.Rotate(0, rotation, 0);
 		//cc.transform.Rotate(0, rotation, 0);
 		cc.Move(transform.TransformDirection(Vector3.forward*vertical) + Physics.gravity *0.01f);
-
-
-	
 		//apply our input to our character controller
 		//cc.Move( new Vector3(0f, 0f, vertical) * .5f + Physics.gravity *0.01f);
 	}
